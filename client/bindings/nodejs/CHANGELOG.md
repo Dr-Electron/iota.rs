@@ -1,5 +1,10 @@
 # Changelog
 
+## \[3.0.0-rc.10]
+
+- Removed `IInputSigningData::bech32Address`;
+  - [ea1be10](https://github.com/iotaledger/iota.rs/commit/ea1be101e91a043f5db988af2670937c7137d33c) More tests, inputs ordering ([#1585](https://github.com/iotaledger/iota.rs/pull/1585)) on 2023-02-24
+
 ## \[3.0.0-rc.9]
 
 - Merged `IAuth::{username, password}` into `IAuth::basicAuthNamePwd`;
