@@ -12,3 +12,4 @@ signed_transaction.json
 iota.rs.log
 *.stronghold
 client.log
+tools/**/*.json

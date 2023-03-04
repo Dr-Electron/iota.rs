@@ -3,11 +3,12 @@
 
 use std::hash::Hash;
 
+use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 pub use url::Url;
 
 /// Node authentication object.
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq, Hash)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq, Hash, JsonSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct NodeAuth {
     /// JWT.
@@ -17,7 +18,7 @@ pub struct NodeAuth {
 }
 
 /// Node definition.
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq, Hash)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq, Hash, JsonSchema)]
 pub struct Node {
     /// Node url.
     pub url: Url,
@@ -39,7 +40,7 @@ impl From<Url> for Node {
 }
 
 /// NodeDto enum to accept just a single url or also provided auth options or set if the node should be disabled.
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq, Hash)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq, Hash, JsonSchema)]
 #[serde(untagged)]
 pub enum NodeDto {
     /// Node url

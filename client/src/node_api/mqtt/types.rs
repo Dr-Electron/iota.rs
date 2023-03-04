@@ -10,6 +10,7 @@ use iota_types::block::{
     Block,
 };
 use regex::RegexSet;
+use schemars::JsonSchema;
 use serde::{Deserialize, Deserializer};
 use serde_json::Value;
 
@@ -55,7 +56,7 @@ pub enum MqttEvent {
 
 /// The MQTT broker options.
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize, PartialEq, Eq)]
+#[derive(Debug, Clone, serde::Deserialize, serde::Serialize, PartialEq, Eq, JsonSchema)]
 #[must_use]
 pub struct BrokerOptions {
     #[serde(default = "default_broker_automatic_disconnect", rename = "automaticDisconnect")]

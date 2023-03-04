@@ -9,6 +9,9 @@ members = [
 	"pow",
 	"types",
 ]
+exclude = [
+	"tools"
+]
 
 [profile.dev]
 panic = "abort"

@@ -9,6 +9,7 @@ use packable::{
     unpacker::Unpacker,
     Packable,
 };
+use schemars::JsonSchema;
 
 use crate::block::{output::OutputId, payload::milestone::MilestoneIndex, BlockId, Error};
 
@@ -71,7 +72,7 @@ impl RentStructureBuilder {
 }
 
 /// Specifies the current parameters for the byte cost computation.
-#[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+#[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, JsonSchema)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct RentStructure {
     /// Cost in tokens per virtual byte.

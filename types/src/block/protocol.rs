@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 use alloc::string::String;
+use schemars::JsonSchema;
 use core::borrow::Borrow;
 
 use packable::{prefix::StringPrefix, Packable};
@@ -9,7 +10,7 @@ use packable::{prefix::StringPrefix, Packable};
 use crate::block::{helper::network_name_to_id, output::RentStructure, Error, PROTOCOL_VERSION};
 
 /// Defines the parameters of the protocol.
-#[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Packable)]
+#[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Packable, JsonSchema)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[packable(unpack_error = Error)]
 pub struct ProtocolParameters {
@@ -19,10 +20,12 @@ pub struct ProtocolParameters {
     // The human friendly name of the network.
     #[packable(unpack_error_with = |err| Error::InvalidNetworkName(err.into_item_err()))]
     #[cfg_attr(feature = "serde", serde(alias = "networkName"))]
+    #[schemars(skip)]
     network_name: StringPrefix<u8>,
     // The HRP prefix used for Bech32 addresses in the network.
     #[packable(unpack_error_with = |err| Error::InvalidBech32Hrp(err.into_item_err()))]
     #[cfg_attr(feature = "serde", serde(alias = "bech32Hrp"))]
+    #[schemars(skip)]
     bech32_hrp: StringPrefix<u8>,
     // The minimum pow score of the network.
     #[cfg_attr(feature = "serde", serde(alias = "minPowScore"))]

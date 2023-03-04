@@ -10,6 +10,7 @@ use std::{
 };
 
 use iota_types::api::core::response::InfoResponse;
+use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use url::Url;
 
@@ -24,7 +25,7 @@ use crate::{
 };
 
 /// Node manager builder
-#[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq, JsonSchema)]
 pub struct NodeManagerBuilder {
     /// Node which will be tried first for all requests
     #[serde(rename = "primaryNode")]

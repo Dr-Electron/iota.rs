@@ -7,6 +7,7 @@ use std::{
     sync::{Arc, RwLock},
     time::Duration,
 };
+use schemars::JsonSchema;
 
 use iota_types::block::{
     output::dto::RentStructureDto,
@@ -28,7 +29,7 @@ use crate::{
 };
 
 /// Struct containing network and PoW related information
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq, JsonSchema)]
 pub struct NetworkInfo {
     // TODO do we really want a default?
     /// Protocol parameters.
@@ -108,7 +109,7 @@ fn default_tips_interval() -> u64 {
 }
 
 /// Builder to construct client instance with sensible default values
-#[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq, JsonSchema)]
 #[must_use]
 pub struct ClientBuilder {
     /// Node manager builder
