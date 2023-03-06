@@ -7,12 +7,12 @@ use std::{
     sync::{Arc, RwLock},
     time::Duration,
 };
-use schemars::JsonSchema;
 
 use iota_types::block::{
     output::dto::RentStructureDto,
     protocol::{dto::ProtocolParametersDto, ProtocolParameters},
 };
+use schemars::JsonSchema;
 #[cfg(not(target_family = "wasm"))]
 use tokio::runtime::Runtime;
 

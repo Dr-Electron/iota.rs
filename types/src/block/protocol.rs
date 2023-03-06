@@ -2,10 +2,10 @@
 // SPDX-License-Identifier: Apache-2.0
 
 use alloc::string::String;
-use schemars::JsonSchema;
 use core::borrow::Borrow;
 
 use packable::{prefix::StringPrefix, Packable};
+use schemars::JsonSchema;
 
 use crate::block::{helper::network_name_to_id, output::RentStructure, Error, PROTOCOL_VERSION};
 

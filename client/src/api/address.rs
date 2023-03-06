@@ -4,6 +4,7 @@
 use std::ops::Range;
 
 use iota_types::block::address::Address;
+use schemars::JsonSchema;
 use serde::Deserialize;
 
 use crate::{
@@ -27,7 +28,7 @@ pub struct GetAddressesBuilder<'a> {
 }
 
 /// Get address builder from string
-#[derive(Clone, Debug, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, Default, Serialize, Deserialize, JsonSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct GetAddressesBuilderOptions {
     /// Coin type

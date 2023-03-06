@@ -11,6 +11,7 @@ use iota_types::block::{
         Output, OutputId, OutputMetadata,
     },
 };
+use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 #[cfg(feature = "stronghold")]
 use zeroize::ZeroizeOnDrop;
@@ -43,7 +44,7 @@ pub struct AccountAddress {
 }
 
 /// Options provided to `generate_address()`.
-#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, Default, Eq, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct GenerateAddressOptions {
     /// Display the address on ledger devices.
     #[serde(rename = "ledgerNanoPrompt")]
