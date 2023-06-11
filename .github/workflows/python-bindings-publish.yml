@@ -22,10 +22,10 @@ jobs:
       fail-fast: false
       matrix:
         # Using Ubuntu 18.04 to provide glibc compatibility. (#588)
-        os: [ubuntu-18.04, macos-latest, windows-latest]
+        os: [ubuntu-20.04, macos-latest, windows-latest]
         python: ['3.9']
         include:
-          - os: ubuntu-18.04
+          - os: ubuntu-20.04
             identifier: linux
           - os: macos-latest
             identifier: macos
